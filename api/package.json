@@ -1,0 +1,19 @@
+{
+  "name": "customers-managment",
+  "version": "1.0.0",
+  "description": "A simple API for managing customers",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/cli": "^10.2.0",
+    "body-parser": "^1.19.0",
+    "json-server": "^0.16.2",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "json-server --watch ./customers.json",
+    "start-auth": "node index.js"
+  },
+  "author": "Dorota Gil",
+  "license": "MIT"
+}

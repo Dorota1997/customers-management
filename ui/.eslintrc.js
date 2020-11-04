@@ -17,7 +17,6 @@ module.exports = {
         "import/prefer-default-export": "off",
         "@typescript-eslint/lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
         "@typescript-eslint/no-explicit-any": "error",
-        "@typescript-eslint/no-undef": "error"
       },
     },
     {

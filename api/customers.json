@@ -5,8 +5,10 @@
       "name": "Janina",
       "surname": "Kowalska",
       "birthDate": "1990.07.15",
-      "industry": "Finanse",
-      "subcategory": "Ubezpieczalnia",
+      "industry": {
+        "name": "Finanse",
+        "subcategories": ["Ubezpieczalnia"]
+      },
       "phoneNumber": "901672003",
       "email": "janinaKowalska@gmail.com"
     },
@@ -15,8 +17,10 @@
       "name": "Łucja",
       "surname": "Nowak",
       "birthDate": "1980.07.05",
-      "industry": "Finanse",
-      "subcategory": "Bank",
+      "industry": {
+        "name": "Finanse",
+        "subcategories": ["Bank"]
+      },
       "phoneNumber": "315600778",
       "email": "nowakLucja@gmail.com"
     },
@@ -25,8 +29,10 @@
       "name": "Katarzyna",
       "surname": "Wrona",
       "birthDate": "1977.10.09",
-      "industry": "Media",
-      "subcategory": "TV",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["TV"]
+      },
       "phoneNumber": "606198234",
       "email": "wronaKatarzyna@wp.pl"
     },
@@ -35,8 +41,10 @@
       "name": "Adrianna",
       "surname": "Kowalewska",
       "birthDate": "1968.06.28",
-      "industry": "Media",
-      "subcategory": "Radio",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["Radio"]
+      },
       "phoneNumber": "797000365",
       "email": "kowalAdrianna@onet.pl"
     },
@@ -45,8 +53,10 @@
       "name": "Zdzisław",
       "surname": "Nowiński",
       "birthDate": "1960.01.22",
-      "industry": "Podróże",
-      "subcategory": "Krajowe",
+      "industry": {
+        "name": "Podróże",
+        "subcategories": ["Krajowe"]
+      },
       "phoneNumber": "290500189",
       "email": "nowinskiZdzislaw@wp.pl"
     },
@@ -55,8 +65,10 @@
       "name": "Arkadiusz",
       "surname": "Szczepański",
       "birthDate": "1970.07.13",
-      "industry": "Podróże",
-      "subcategory": "Zagraniczne",
+      "industry": {
+        "name": "Podróże",
+        "subcategories": ["Zagraniczne"]
+      },
       "phoneNumber": "900188354",
       "email": "szczepanskiArkadiusz@onet.pl"
     },
@@ -65,8 +77,10 @@
       "name": "Mariusz",
       "surname": "Nowakowski",
       "birthDate": "1959.03.30",
-      "industry": "Finanse",
-      "subcategory": "Ubezpieczalnia",
+      "industry": {
+        "name": "Finanse",
+        "subcategories": ["Ubezpieczalnia"]
+      },
       "phoneNumber": "980100555",
       "email": "nowakowskiMariusz@wp.pl"
     },
@@ -75,8 +89,10 @@
       "name": "Mateusz",
       "surname": "Wróblewski",
       "birthDate": "1958.04.18",
-      "industry": "Finanse",
-      "subcategory": "Bank",
+      "industry": {
+        "name": "Finanse",
+        "subcategories": ["Bank"]
+      },
       "phoneNumber": "330999567",
       "email": "mateuszWroblewski@onet.pl"
     },
@@ -85,8 +101,10 @@
       "name": "Kornel",
       "surname": "Przyborowski",
       "birthDate": "1991.12.12",
-      "industry": "Media",
-      "subcategory": "TV",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["TV"]
+      },
       "phoneNumber": "777109235",
       "email": "kornelPrzyborowski@gmail.com"
     },
@@ -95,8 +113,10 @@
       "name": "Karol",
       "surname": "Wroński",
       "birthDate": "1985.06.19",
-      "industry": "Media",
-      "subcategory": "Radio",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["Radio"]
+      },
       "phoneNumber": "909434121",
       "email": "karolWronski@onet.pl"
     },
@@ -104,8 +124,10 @@
       "name": "Jacek",
       "surname": "Przypadek",
       "birthDate": "1981.09.29",
-      "industry": "Media",
-      "subcategory": "Radio",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["Radio"]
+      },
       "phoneNumber": "543535345",
       "email": "przypadek32@wp.pl",
       "id": 11
@@ -114,8 +136,10 @@
       "name": "Kazimierz",
       "surname": "Niezgódka",
       "birthDate": "1959.04.15",
-      "industry": "Podróże",
-      "subcategory": "Krajowe",
+      "industry": {
+        "name": "Podróże",
+        "subcategories": ["Krajowe"]
+      },
       "phoneNumber": "456576898",
       "email": "niezgodkaKaz@gmail.com",
       "id": 12
@@ -124,8 +148,10 @@
       "name": "Wiesław",
       "surname": "Zalewski",
       "birthDate": "1949.11.18",
-      "industry": "Media",
-      "subcategory": "Radio",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["Radio"]
+      },
       "phoneNumber": "646545604",
       "email": "nieZgodk@wp.pl",
       "id": 13
@@ -134,8 +160,10 @@
       "name": "Janusz",
       "surname": "Jankowski",
       "birthDate": "1967.08.01",
-      "industry": "Podróże",
-      "subcategory": "Zagraniczne",
+      "industry": {
+        "name": "Podróże",
+        "subcategories": ["Zagraniczne"]
+      },
       "phoneNumber": "909909900",
       "email": "jankowski23@gmail.com",
       "id": 14
@@ -144,8 +172,10 @@
       "name": "Karolina",
       "surname": "Konieczko",
       "birthDate": "1985.02.21",
-      "industry": "Media",
-      "subcategory": "TV",
+      "industry": {
+        "name": "Media",
+        "subcategories": ["TV"]
+      },
       "phoneNumber": "400045435",
       "email": "karolinaK@o2.pl",
       "id": 15

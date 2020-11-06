@@ -1,3 +1,34 @@
-<p>
-  login works!
-</p>
+<div class="col-md-12 d-flex align-items-center min-vh-100 login-bg">
+  <mat-card class="example-card mx-auto">
+    <h2 class="text-uppercase text-center mt-5 mb-5">Logowanie</h2>
+  
+    <form [formGroup]="formGroup" class="text-center">
+      <mat-form-field appearance="fill" class="mb-3">
+        <mat-label>Login</mat-label>
+        <input matInput formControlName="login" autocomplete="off" />
+        <button mat-icon-button matPrefix class="icon-button">
+          <mat-icon>person</mat-icon>
+        </button>
+        <mat-error *ngIf="checkError(formGroup, 'login', 'required')">
+          <strong>Login</strong> jest wymagany
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Hasło</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off" />
+        <button mat-icon-button matPrefix class="icon-break" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="checkError(formGroup, 'password', 'required')">
+          <strong>Hasło</strong> jest wymagane
+        </mat-error>
+      </mat-form-field>
+    </form>
+  
+    <div class="text-right mt-4 mb-5">
+      <button mat-button class="text-uppercase" [disabled]="!formGroup.valid" (click)="login()">Zaloguj się</button>
+    </div>
+  </mat-card>
+</div>

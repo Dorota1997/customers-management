@@ -3,3 +3,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button:focus {
+    outline: none;
+}
+
+table {
+    width: 100%;
+}
+
+.icon-close {
+    float: right; 
+    margin-left: auto; 
+    cursor: pointer;
+}
+
+.title-content {
+    text-transform: uppercase; 
+    position: absolute; 
+    font-weight: bold;
+}

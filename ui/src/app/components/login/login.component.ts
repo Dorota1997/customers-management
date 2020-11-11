@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedService } from 'src/app/_services/shared.service';
 import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
@@ -15,13 +16,17 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private authenticationService: AuthenticationService, private router: Router) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    private sharedService: SharedService,
+  ) {}
 
   ngOnInit() {}
 
-  public checkError = (data: FormGroup, controlName: string, errorName: string) => {
-    return data.controls[controlName].hasError(errorName);
-  };
+  checkError(data: FormGroup, controlName: string, errorName: string) {
+    return this.sharedService.checkError(data, controlName, errorName);
+  }
 
   login() {
     const authData = {

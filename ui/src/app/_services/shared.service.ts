@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -14,4 +15,8 @@ export class SharedService {
     if (today.getMonth() + 1 < 10) monthDate = `0${monthDate}`;
     return `${maxYear}-${monthDate}-${dayDate}`;
   }
+
+  public checkError = (data: FormGroup, controlName: string, errorName: string) => {
+    return data.controls[controlName].hasError(errorName);
+  };
 }

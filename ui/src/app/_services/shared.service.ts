@@ -3,4 +3,15 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class SharedService {}
+export class SharedService {
+  setMaxDate() {
+    const today = new Date();
+    let dayDate = today.getDate().toString();
+    let monthDate = (today.getMonth() + 1).toString();
+    const year = today.getFullYear();
+    const maxYear = year - 18;
+    if (today.getDate() < 10) dayDate = `0${dayDate}`;
+    if (today.getMonth() + 1 < 10) monthDate = `0${monthDate}`;
+    return `${maxYear}-${monthDate}-${dayDate}`;
+  }
+}

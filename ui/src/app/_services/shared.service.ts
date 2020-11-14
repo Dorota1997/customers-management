@@ -5,6 +5,28 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root',
 })
 export class SharedService {
+  tableCols: string[] = [
+    'name',
+    'surname',
+    'birthDate',
+    'industry',
+    'subcategory',
+    'phoneNumber',
+    'email',
+    'options',
+  ];
+
+  tableColumns: string[] = [
+    'imię',
+    'nazwisko',
+    'data urodzenia',
+    'branża',
+    'podkategoria',
+    'numer telefonu',
+    'adres e-mail',
+    'opcje',
+  ];
+
   setMaxDate() {
     const today = new Date();
     let dayDate = today.getDate().toString();

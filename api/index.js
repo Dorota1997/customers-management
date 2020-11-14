@@ -48,6 +48,10 @@ server.post('/auth/login', (req, res) => {
   res.status(200).json({ access_token });
 });
 
+server.post('/', function(req, res){
+  res.status(200).json(req.body);
+})
+
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
   if (
     req.headers.authorization === undefined ||

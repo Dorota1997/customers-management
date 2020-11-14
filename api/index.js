@@ -52,6 +52,10 @@ server.post('/', function(req, res){
   res.status(200).json(req.body);
 })
 
+server.put('/:id', function(req, res){
+  res.status(200).json(req.body);
+})
+
 server.use(/^(?!\/auth).*$/, (req, res, next) => {
   if (
     req.headers.authorization === undefined ||

@@ -13,8 +13,8 @@
     {
       "id": 2,
       "name": "Łucja",
-      "surname": "Nowak",
-      "birthDate": "1980.07.05",
+      "surname": "Nowaczyńska",
+      "birthDate": "2002.08.14",
       "industry": "Finanse",
       "subcategory": "Bank",
       "phoneNumber": "315600778",
@@ -94,9 +94,9 @@
       "id": 10,
       "name": "Karol",
       "surname": "Wroński",
-      "birthDate": "1985.06.19",
-      "industry": "Media",
-      "subcategory": "Radio",
+      "birthDate": "1988.10.20",
+      "industry": "Podróże",
+      "subcategory": "Zagraniczne",
       "phoneNumber": "909434121",
       "email": "karolWronski@onet.pl"
     },
@@ -149,6 +149,26 @@
       "phoneNumber": "400045435",
       "email": "karolinaK@o2.pl",
       "id": 15
+    },
+    {
+      "id": 16,
+      "name": "Karolina",
+      "surname": "Łukaszewska",
+      "birthDate": "1997.08.15",
+      "industry": "Finanse",
+      "subcategory": "Bank",
+      "phoneNumber": "990000555",
+      "email": "karolinaLuk@gmail.com"
+    },
+    {
+      "id": 17,
+      "name": "Alicja",
+      "surname": "Napiórkowska",
+      "birthDate": "1987.05.01",
+      "industry": "Finanse",
+      "subcategory": "Ubezpieczalnia",
+      "phoneNumber": "343545354",
+      "email": "alicjaNap@wp.pl"
     }
   ],
   "industries": [

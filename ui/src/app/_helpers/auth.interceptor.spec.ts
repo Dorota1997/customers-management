@@ -1,16 +1,29 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
-import { AuthInterceptor } from './auth.interceptor';
+import { environment } from 'src/environments/environment';
+import { AuthInterceptor, authInterceptorProviders } from './auth.interceptor';
+import { CustomerService } from '../_services/customer.service';
 
 describe('AuthInterceptor', () => {
-  beforeEach(() =>
-    TestBed.configureTestingModule({
-      providers: [AuthInterceptor],
-    }),
-  );
+  let customerService: CustomerService;
+  let httpMock: HttpTestingController;
 
-  it('should be created', () => {
-    const interceptor: AuthInterceptor = TestBed.inject(AuthInterceptor);
-    expect(interceptor).toBeTruthy();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [AuthInterceptor, authInterceptorProviders, CustomerService],
+    });
+
+    customerService = TestBed.get(CustomerService);
+    httpMock = TestBed.get(HttpTestingController);
+  });
+
+  it('should add an Authorization header', () => {
+    customerService.customers().subscribe((response) => {
+      expect(response).toBeTruthy();
+    });
+
+    const httpRequest = httpMock.expectOne(`${environment.api}customers`);
+    expect(httpRequest.request.headers.has('Authorization')).toBeTruthy();
   });
 });

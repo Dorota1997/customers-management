@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   @Output() showForms = new EventEmitter();
   industries: Industry[] = [];
   subcategories: string[] = [];
-  maxDate;
+  maxDate: string;
   formGroup: FormGroup;
 
   constructor(
@@ -84,7 +84,9 @@ export class FormComponent implements OnInit {
 
     switch (this.optionNum) {
       case 0:
-        this.customerService.create(customer).subscribe(() => {});
+        this.customerService.create(customer).subscribe((res: Customer) => {
+          this.sharedService.customer.next(res);
+        });
         break;
       case 1:
         customer.id = this.rowData.id;

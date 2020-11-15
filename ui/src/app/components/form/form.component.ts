@@ -72,7 +72,7 @@ export class FormComponent implements OnInit {
 
   createCustomer() {
     const customer = {
-      id: this.customerData.id,
+      id: 0,
       name: this.formGroup.get('name').value,
       surname: this.formGroup.get('surname').value,
       birthDate: this.formGroup.get('birthDate').value.replace(/-/g, '.'),
@@ -87,7 +87,11 @@ export class FormComponent implements OnInit {
         this.customerService.create(customer).subscribe(() => {});
         break;
       case 1:
-        this.customerService.update(customer).subscribe(() => {});
+        customer.id = this.rowData.id;
+        this.customerService.update(customer).subscribe((res: Customer) => {
+          this.sharedService.customer.next(res);
+          this.sharedService.isUpdated.next(true);
+        });
         break;
       default:
         break;

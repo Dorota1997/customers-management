@@ -21,6 +21,7 @@ export class CustomersComponent implements OnInit {
   tableData: MatTableDataSource<Customer>;
   tableCols: string[];
   tableColumns: string[];
+  customer: Customer;
 
   constructor(private customerService: CustomerService, private sharedService: SharedService) {}
 
@@ -28,6 +29,25 @@ export class CustomersComponent implements OnInit {
     this.customers();
     this.tableCols = this.sharedService.tableCols;
     this.tableColumns = this.sharedService.tableColumns;
+
+    this.sharedService.customer.subscribe((res: Customer) => {
+      this.customer = res;
+    });
+
+    this.sharedService.isUpdated.subscribe((isUpdated: boolean) => {
+      if (isUpdated) {
+        const newData = this.tableData.data;
+        const customerToChange = newData.find((c) => c.id === this.customer.id);
+        customerToChange.name = this.customer.name;
+        customerToChange.surname = this.customer.surname;
+        customerToChange.birthDate = this.customer.birthDate;
+        customerToChange.industry = this.customer.industry;
+        customerToChange.subcategory = this.customer.subcategory;
+        customerToChange.phoneNumber = this.customer.phoneNumber;
+        customerToChange.email = this.customer.email;
+        newData.push(customerToChange);
+      }
+    });
   }
 
   customers() {

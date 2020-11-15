@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { Customer } from '../_models/customer.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SharedService {
+  customer = new Subject<Customer>();
+  isUpdated = new BehaviorSubject<boolean>(false);
   tableCols: string[] = [
     'name',
     'surname',

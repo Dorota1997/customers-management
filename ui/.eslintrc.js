@@ -24,7 +24,6 @@ module.exports = {
             endOfLine: "auto",
           },
         ],
-        "no-input-rename": false,
       },
     },
     {

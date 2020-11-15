@@ -12,10 +12,8 @@ import { IndustryService } from '../../_services/industry.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('rowData') customerData: Customer;
-  // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input('optionNum') optNum: number;
+  @Input() rowData: Customer;
+  @Input() optionNum: number;
   @Output() showForms = new EventEmitter();
   industries: Industry[] = [];
   subcategories: string[] = [];
@@ -31,15 +29,15 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.maxDate = this.sharedService.setMaxDate();
     this.formGroup = new FormGroup({
-      name: new FormControl(this.customerData?.name ?? '', [Validators.required]),
-      surname: new FormControl(this.customerData?.surname ?? '', [Validators.required]),
-      birthDate: new FormControl(this.customerData?.birthDate.replace(/./g, '-') ?? '', [
+      name: new FormControl(this.rowData?.name ?? '', [Validators.required]),
+      surname: new FormControl(this.rowData?.surname ?? '', [Validators.required]),
+      birthDate: new FormControl(this.rowData?.birthDate.replace(/./g, '-') ?? '', [
         Validators.required,
       ]),
-      industry: new FormControl(this.customerData?.industry ?? '', [Validators.required]),
-      subcategory: new FormControl(this.customerData?.subcategory ?? '', [Validators.required]),
-      phoneNumber: new FormControl(this.customerData?.phoneNumber ?? '', [Validators.required]),
-      email: new FormControl(this.customerData?.email ?? '', [Validators.required]),
+      industry: new FormControl(this.rowData?.industry ?? '', [Validators.required]),
+      subcategory: new FormControl(this.rowData?.subcategory ?? '', [Validators.required]),
+      phoneNumber: new FormControl(this.rowData?.phoneNumber ?? '', [Validators.required]),
+      email: new FormControl(this.rowData?.email ?? '', [Validators.required]),
     });
 
     this.allIndustries();
@@ -52,12 +50,12 @@ export class FormComponent implements OnInit {
   allIndustries() {
     this.industryService.industries().subscribe((res: Industry[]) => {
       this.industries = res;
-      this.findSubcategories(this.customerData?.industry);
+      this.findSubcategories(this.rowData?.industry);
     });
   }
 
   isVisibility() {
-    return this.optNum === 0;
+    return this.optionNum === 0;
   }
 
   onChange(event) {
@@ -84,7 +82,7 @@ export class FormComponent implements OnInit {
       email: this.formGroup.get('email').value,
     };
 
-    switch (this.optNum) {
+    switch (this.optionNum) {
       case 0:
         this.customerService.create(customer).subscribe(() => {});
         break;

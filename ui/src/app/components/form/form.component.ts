@@ -31,7 +31,7 @@ export class FormComponent implements OnInit {
     this.formGroup = new FormGroup({
       name: new FormControl(this.rowData?.name ?? '', [Validators.required]),
       surname: new FormControl(this.rowData?.surname ?? '', [Validators.required]),
-      birthDate: new FormControl(this.rowData?.birthDate.replace(/./g, '-') ?? '', [
+      birthDate: new FormControl(this.rowData?.birthDate.replace(/\./g, '-') ?? '', [
         Validators.required,
       ]),
       industry: new FormControl(this.rowData?.industry ?? '', [Validators.required]),

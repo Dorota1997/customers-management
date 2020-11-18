@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/_models/customer.model';
 import { CustomerService } from 'src/app/_services/customer.service';
@@ -11,7 +11,7 @@ import { IndustryService } from '../../_services/industry.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnChanges {
   @Input() rowData: Customer;
   @Input() optionNum: number;
   @Output() showForms = new EventEmitter();
@@ -26,8 +26,7 @@ export class FormComponent implements OnInit {
     private customerService: CustomerService,
   ) {}
 
-  ngOnInit() {
-    this.maxDate = this.sharedService.setMaxDate();
+  ngOnChanges() {
     this.formGroup = new FormGroup({
       name: new FormControl(this.rowData?.name ?? '', [Validators.required]),
       surname: new FormControl(this.rowData?.surname ?? '', [Validators.required]),
@@ -39,7 +38,10 @@ export class FormComponent implements OnInit {
       phoneNumber: new FormControl(this.rowData?.phoneNumber ?? '', [Validators.required]),
       email: new FormControl(this.rowData?.email ?? '', [Validators.required]),
     });
+  }
 
+  ngOnInit() {
+    this.maxDate = this.sharedService.setMaxDate();
     this.allIndustries();
   }
 

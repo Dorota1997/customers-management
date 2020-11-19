@@ -9,6 +9,7 @@ import { Customer } from '../_models/customer.model';
 export class SharedService {
   customer = new Subject<Customer>();
   isUpdated = new BehaviorSubject<boolean>(false);
+  isCreated = new BehaviorSubject<boolean>(false);
   tableCols: string[] = [
     'name',
     'surname',

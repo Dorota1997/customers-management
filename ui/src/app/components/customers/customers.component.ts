@@ -34,6 +34,14 @@ export class CustomersComponent implements OnInit {
       this.customer = res;
     });
 
+    this.sharedService.isCreated.subscribe((isCreated: boolean) => {
+      if (isCreated) {
+        const newData = this.tableData.data;
+        newData.push(this.customer);
+        this.tableData.data = newData;
+      }
+    });
+
     this.sharedService.isUpdated.subscribe((isUpdated: boolean) => {
       if (isUpdated) {
         const newData = this.tableData.data;
@@ -63,11 +71,9 @@ export class CustomersComponent implements OnInit {
   }
 
   showFormCard(number: number) {
+    this.forms = true;
     this.optionNum = number;
     this.customerData = undefined;
-    setTimeout(() => {
-      this.forms = true;
-    }, 200);
   }
 
   displayForms(event) {
@@ -81,17 +87,12 @@ export class CustomersComponent implements OnInit {
   sortCustomersBy(event) {
     if (event !== 'options') {
       const table = [...this.tableData.data];
-      let firstDate;
-      let secondDate;
+      let firstValue;
+      let secondValue;
       table.sort((firstObj, secondObj) => {
-        if (event === 'birthDate') {
-          firstDate = new Date(firstObj[event]);
-          secondDate = new Date(secondObj[event]);
-          return firstDate < secondDate ? -1 : 1;
-        }
-        firstDate = firstObj[event];
-        secondDate = secondObj[event];
-        return firstDate.localeCompare(secondDate);
+        firstValue = firstObj[event];
+        secondValue = secondObj[event];
+        return firstValue.localeCompare(secondValue);
       });
       this.tableData.data = table;
     }
